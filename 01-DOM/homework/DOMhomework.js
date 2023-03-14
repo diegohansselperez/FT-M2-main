@@ -63,6 +63,8 @@ function buildToDo(todo, index) {
   toDoText.id = index
   toDoText.innerHTML = todo.description;
 
+  toDoText.addEventListener("click", completeToDo)
+
   todo.complete ? toDoText.classList.add('completeText') : null ;
 
   toDoShell.appendChild(toDoText)
@@ -154,8 +156,7 @@ function completeToDo(event) {
   const index = event.target.id;
   // Tu código acá:
   toDoItems[index].completeToDo();
-  
-  
+  displayToDos()
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
