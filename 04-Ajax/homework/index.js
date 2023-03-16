@@ -12,45 +12,47 @@ const listaOrdena = document.getElementById("lista");
 
 const URL_db = "http://localhost:5000";
 
-
+//Mostrar un amigo ********************************************
 const amigosJson = (amigos) => {
-  amigos.forEach((amigo) => {
+  lista.innerHTML = "";
+  amigos.forEach(({id, name}) => {
   const li = document.createElement("li");
-  li.innerHTML =`${amigo.id}-${amigo.name}`;
+  li.innerHTML =`${id} - ${name}`;
   listaOrdena.appendChild(li);
-  })};
+  })
+};
 
 const friends = () => {
 $.get(`${URL_db}/amigos`, amigosJson);
 }
+
 botonAmigos.addEventListener("click", friends)
 
-//
-const nombre = (friend) => {
+//Buscar un amigo************************************************
+const nombreAmigo = (friend) => {
     spanAmigo.innerHTML = friend.name;
 }
 
-const amigo = () => {
+const buscarAmigo = () => {
     const id = input.value
-    $.get(`http://localhost:5000/amigos/${id}`, nombre)
+    $.get(`${BASE_URL}/amigos/${id}`, nombreAmigo)
 }
 
-botonBuscar.addEventListener("click",amigo)
+botonBuscar.addEventListener("click",buscarAmigo)
 
 
-//delete
-
+//Eliminar un amigo********************************************************
 const eliminarAmigo = () => {
-    const id = inputEliminar.val();
+    const id = inputEliminar.value
     $.ajax({
-      url: `${BASE_URL}/amigos/${id}`,
+      url:`${BASE_URL}/amigos/${id}`,
       type: "DELETE",
-    })
-      .done(() => {
-        spanSuccess.text("Amigo eliminado exitosamente");
+      success: () => {
+        alert("Eliminamos un amigo")
+        spanSuccess.innerText= "Amigo eliminado exitosamente";
         friends();
-      })
-      .fail((error) => console.error(error));
-  };
+       }
+  })
+};
 
 botonEliminar.addEventListener("click", eliminarAmigo)
