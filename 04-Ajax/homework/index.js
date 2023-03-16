@@ -25,7 +25,7 @@ $.get(`${URL_db}/amigos`, amigosJson);
 }
 botonAmigos.addEventListener("click", friends)
 
-//buscar
+//
 const nombre = (friend) => {
     spanAmigo.innerHTML = friend.name;
 }
@@ -40,15 +40,17 @@ botonBuscar.addEventListener("click",amigo)
 
 //delete
 
-const eliminar = () => {
-    const id = inputEliminar.value;
-    $.ajax(
-        {
-            url:`http://localhost:5000/amigos/${id}`,
-            type:"DELETE",
-            success: () =>{} 
-        }
-    )
-}
+const eliminarAmigo = () => {
+    const id = inputEliminar.val();
+    $.ajax({
+      url: `${BASE_URL}/amigos/${id}`,
+      type: "DELETE",
+    })
+      .done(() => {
+        spanSuccess.text("Amigo eliminado exitosamente");
+        friends();
+      })
+      .fail((error) => console.error(error));
+  };
 
-botonEliminar.addEventListener("click", eliminar)
+botonEliminar.addEventListener("click", eliminarAmigo)
