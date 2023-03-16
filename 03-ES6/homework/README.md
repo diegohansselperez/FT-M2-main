@@ -24,9 +24,9 @@ $('#id') => debería retornar un elemento con id: "id".
 
 Si bien este problema parece muy complejo a priori, vamos a usar la ténica [**divide and conquer**](https://es.wikipedia.org/wiki/Algoritmo_divide_y_vencer%C3%A1s). De esta manera vamos a separar el problema en tres problemas más pequeños:
 
-- selectorTypeMatcher(selector): esta función recibe un selector (ej: '#id'), y devolverá un string con los distintos tipos de selectores ('id', 'class', etc) según el input.
+<!-- - selectorTypeMatcher(selector): esta función recibe un selector (ej: '#id'), y devolverá un string con los distintos tipos de selectores ('id', 'class', etc) según el input.
 - matchFunctionMaker(selector): esta función va a usar a la selectorTypeMatcher, y en base a eso va a devolver una función que sirve para encontrar los elementos según el tipo de selector. Por ejemplo, si el selector es de tipo clase, la función va a buscar en la propiedad class de los elementos.
-- traverseDomAndCollectElements: Finalmente, vamos a tener esta función cuya tarea es recorrer el árbol del DOM e ir guardando los elementos que coinciden con la función selectora que describimos antes.
+- traverseDomAndCollectElements: Finalmente, vamos a tener esta función cuya tarea es recorrer el árbol del DOM e ir guardando los elementos que coinciden con la función selectora que describimos antes. -->
 
 Vamos a construir cada una de estas a medida que el homework avanza. Además, la funcion `$` ha sido definida para vos (pero usa las funciones listadas arriba que tendrás que codear).
 

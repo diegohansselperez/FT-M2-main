@@ -59,15 +59,22 @@ function buildToDo(todo, index) {
   const toDoShell = document.createElement("div")
   toDoShell.className = "toDoShell"
 
+  const inputCheck = document.createElement("input")
+  inputCheck.type = "checkbox";
+  inputCheck.id = index;
+  inputCheck.addEventListener("click", completeToDo)
+  //inputCheck.className = "completeCheckbox"
+
   const toDoText = document.createElement("span");
-  toDoText.id = index
+  //toDoText.id = index
   toDoText.innerHTML = todo.description;
 
-  toDoText.addEventListener("click", completeToDo)
+  // toDoText.addEventListener("click", completeToDo)
 
-  todo.complete ? toDoText.classList.add('completeText') : null ;
+  todo.complete ? toDoText.classList.add('completeText') : null;
+  todo.complete ? inputCheck.classList.add('completeCheckbox') : null ;
 
-  toDoShell.appendChild(toDoText)
+  toDoShell.append(inputCheck,toDoText)
 
   return toDoShell
 }
@@ -156,7 +163,7 @@ function completeToDo(event) {
   const index = event.target.id;
   // Tu código acá:
   toDoItems[index].completeToDo();
-  displayToDos()
+  displayToDos();
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
