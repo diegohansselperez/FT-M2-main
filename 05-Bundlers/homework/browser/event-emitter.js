@@ -1,6 +1,4 @@
-(function () {
-
-  window.EventEmitter = EventEmitter;
+export const eventEmitter =  EventEmitter();
 
   // our EventEmitter constructor function
   function EventEmitter () {
@@ -43,4 +41,4 @@
 
   };
 
-})();
+
