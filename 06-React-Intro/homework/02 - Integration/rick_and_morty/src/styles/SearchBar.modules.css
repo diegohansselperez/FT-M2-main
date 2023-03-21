@@ -1,0 +1,10 @@
+.inputSearch {
+    width: fit-content;
+    display: flex;
+    gap: 15px;
+}
+
+input {
+    padding: 5px 6px;
+    border-radius: 5px;
+}
