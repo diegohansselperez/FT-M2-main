@@ -1,0 +1,25 @@
+.card {
+    display: flex;
+    width: min-content;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.containerCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 25px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 10px 0;
+}
