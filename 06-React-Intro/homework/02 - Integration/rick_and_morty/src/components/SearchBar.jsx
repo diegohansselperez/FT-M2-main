@@ -9,10 +9,13 @@ const handelChange = (event) => {
    setId(event.target.value)
 }
 
+const numRandom = Math.round(Math.random() * 826)
+
    return (
       <div className="inputSearch">
          <input type='search' onChange={handelChange} placeholder="Agregar un personaje" />
          <button onClick={() => onSearch(id)}>Agregar</button>
+         <button onClick={() => onSearch(numRandom)}>Random</button>
       </div>
    );
 }

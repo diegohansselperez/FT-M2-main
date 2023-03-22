@@ -1,3 +1,4 @@
+/* *****Card.jsx**** */
 .card {
     display: flex;
     width: min-content;
@@ -7,6 +8,7 @@
     border: 2px solid black;
 }
 
+/* ****Cards.jsx**** */
 .containerCard {
     display: flex;
     flex-wrap: wrap;
