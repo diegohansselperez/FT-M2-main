@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function CardDetail() {
-
+  const {id} = useParams();
   const [cruiseDetail, setCruiseDetail] = React.useState({});
   React.useEffect(() => {
     //eslint-disable-next-line
@@ -18,7 +18,7 @@ export default function CardDetail() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const {id} = useParams();
+  
 
   const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ export default function CardDetail() {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => { backToHome() }} className={styles.buttonBack}>
+      <button onClick={() => {backToHome()}} className={styles.buttonBack}>
         Volver
       </button>
 

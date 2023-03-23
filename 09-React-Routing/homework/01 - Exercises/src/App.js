@@ -12,7 +12,7 @@ export default function App() {
   return <div>
     <NavBar /> 
     <Routes >
-      <Route path="/" element={<Home />}/>
+      <Route exact path="/" element={<Home />}/>
       <Route path="/shipping" element={<Shipping />}/>
       <Route path="/discounts" element={<Discounts />}/>
       <Route path="/cruises/:id" element={<CardDetail/>}/>
