@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { connect} from 'react-redux';
 import Caja from '../../assets/caja.png';
+import { addProduct } from '../../redux/actions/actions';
 import './form.css';
 
 class Form extends React.Component{
@@ -10,17 +11,29 @@ class Form extends React.Component{
       this.state = {
          name: "",
          price: "",
-         id: ""
+         id: "",
       }
    }
+
+
 
    handleInputChange = (event) => {
       this.setState({ ...this.state, [event.target.name]: event.target.value });
    }
 
+
+   handleSubmit = (event) => {
+      const {addProduct} = this.props;
+      event.preventDefault();
+      addProduct({
+         ...this.state,
+         id: Date.now(),
+      })
+      console.log(Date.now());
+   }
    render(){
       return (
-         <form className='formBg'>
+         <form onSubmit={this.handleSubmit} className='formBg'>
             <div className='inputBox'>
                <label>Nombre: </label>
                <input
@@ -38,13 +51,17 @@ class Form extends React.Component{
                   value={this.state.price}
                />
             </div>
-            <button className='formBtn'>¡ADD!</button>
+            <button type='submit' className='formBtn'>¡ADD!</button>
             <img src={Caja} alt='' className='logo' />
          </form>
       )
    }
 }
 
-export function mapDispatchToProps() {}
+function mapDispatchToProps(dispatch) {
+   return {
+      addProduct: (product) => dispatch(addProduct(product))
+   }
+}
 
 export default connect(null, mapDispatchToProps)(Form);

@@ -20,7 +20,7 @@ class Counter extends Component {
         Clickeado: {this.props.count} veces
         <button
           onClick={() => {
-            /* Completar */
+            increment();
           }}
         >
           + {/* Incremeta */}
@@ -28,6 +28,7 @@ class Counter extends Component {
         <button
           onClick={() => {
             /* Completar */
+            decrement();
           }}
         >
           - {/* Decrementa */}

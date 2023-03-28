@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav  onSearch={onSearch}/>
+      <Nav onSearch={onSearch}/>
       <Cards
         characters={characters}
         onClose={onClose}
@@ -43,6 +43,6 @@ function App() {
 
 export default App;
 
-//    En esta sintaxis, myState es la variable de estado y setMyState es una función que se utiliza para actualizar el valor de myState. initialState es el valor inicial de myState.
+// En esta sintaxis, myState es la variable de estado y setMyState es una función que se utiliza para actualizar el valor de myState. initialState es el valor inicial de myState.
 // Cuando se llama a setMyState, React re-renderiza el componente y actualiza el valor de myState con el nuevo valor proporcionado como argumento.
 // Es importante tener en cuenta que cada llamada a useState es independiente, por lo que puedes utilizar useState varias veces en un solo componente para agregar múltiples variables de estado.

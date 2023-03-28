@@ -2,12 +2,15 @@ import { useState } from "react";
 //import "./App.css";
 import Cards from "./components/Cards.jsx";
 import { Nav } from "./components/Nav";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import About from "./components/About";
 import Detail from "./components/Detail";
+import Form from "./components/Form";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+
+  const location = useLocation();
 
   const onSearch = (id) => {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -30,15 +33,21 @@ function App() {
     setCharacters(characters.filter((pers) => pers.id !== id));
   };
 
+  //creamos una condicion, si pathname es diferente a "/" entonces que muestre el Nav, en caso contrario que siga con routes y recargue el Form como principal.
   return (
     <div className="App">
-      <Nav onSearch={onSearch} />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} />}
       <Routes>
+        <Route
+          exact
+          path="/"
+          element={ <Form /> }
+        />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
-        <Route path="/about" element={ <About />} />
+        <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
     </div>
