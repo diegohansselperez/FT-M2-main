@@ -23,8 +23,8 @@ class Form extends React.Component{
 
 
    handleSubmit = (event) => {
-      const {addProduct} = this.props;
       event.preventDefault();
+      const {addProduct} = this.props;
       addProduct({
          ...this.state,
          id: Date.now(),
